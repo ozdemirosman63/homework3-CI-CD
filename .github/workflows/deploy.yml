@@ -23,7 +23,7 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/hpapp .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/hp .
 
       - name: Push to DockerHub
         run: |
