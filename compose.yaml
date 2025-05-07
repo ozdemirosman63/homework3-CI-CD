@@ -16,8 +16,7 @@
 
     app:
       container_name: 'hpapp'
-      image: 'hp'
-      build: .
+      image: ozdemirosman/hp:latest
       restart: 'on-failure'
       ports:
         - '8080:8080'

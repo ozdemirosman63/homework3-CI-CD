@@ -9,4 +9,9 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/last")
+    public String getNewHome(){
+        return "newHome";
+    }
+
 }
