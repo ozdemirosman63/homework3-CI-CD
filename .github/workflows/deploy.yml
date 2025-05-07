@@ -29,3 +29,12 @@ jobs:
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
           docker push ${{ secrets.DOCKER_USERNAME }}/hp
+
+      - name: Decode EC2 PEM key
+        run: |
+          echo "${{ secrets.EC2_KEY }}" | base64 -d > ec2key.pem
+          chmod 600 ec2key.pem
+
+      - name: Copy JAR to EC2
+        run: |
+          scp -i ec2key.pem -o StrictHostKeyChecking=no target/*.jar ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/${{ secrets.EC2_USERNAME }}/app/
