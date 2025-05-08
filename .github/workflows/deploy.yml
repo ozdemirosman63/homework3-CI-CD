@@ -42,4 +42,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/hp:latest
             docker-compose down
             docker-compose up -d
-          EOF
+      EOF
