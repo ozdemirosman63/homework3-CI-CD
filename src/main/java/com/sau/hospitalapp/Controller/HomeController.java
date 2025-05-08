@@ -11,7 +11,7 @@ public class HomeController {
 
     @GetMapping("/last")
     public String getNewHome(){
-        return "newHomeee";
+        return "newHome";
     }
 
 }
