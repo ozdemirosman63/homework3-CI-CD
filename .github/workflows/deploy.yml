@@ -38,8 +38,9 @@ jobs:
 
       - name: SSH and deploy on EC2
         run: |
-          ssh -i ec2key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << EOF
-            docker pull ${{ secrets.DOCKER_USERNAME }}/hp:latest
-            docker-compose down
-            docker-compose up -d
-        EOF
+          ssh -i ec2key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} <<EOF
+          docker pull ${{ secrets.DOCKER_USERNAME }}/hp:latest
+          docker-compose down
+          docker-compose up -d
+          EOF
+
