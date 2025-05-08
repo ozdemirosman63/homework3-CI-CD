@@ -48,6 +48,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
               cd /home/ec2-user/
+              docker pull ${{ secrets.DOCKER_USERNAME }}/hp:latest
               docker-compose -f compose.yaml up -d
 
       
